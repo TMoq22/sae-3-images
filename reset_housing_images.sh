@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Configuration 
-REPO_URL="URL_DE_TON_REPO_GIT.git"
+REPO_URL="https://github.com/TMoq22/sae-3-images.git"
 BRANCH="main"
 
 TARGET_UPLOADS_DIR="$HOME/sae/data/web/html/uploads"
