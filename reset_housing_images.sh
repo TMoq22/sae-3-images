@@ -28,8 +28,8 @@ fi
 
 # Suppression des images/sous-dossiers existants dans housing/ 
 echo "Nettoyage de $TARGET_HOUSING_DIR..."
-mkdir -p "$TARGET_HOUSING_DIR"
-find "$TARGET_HOUSING_DIR" -mindepth 1 -maxdepth 1 -exec rm -rf {} +
+sudo mkdir -p "$TARGET_HOUSING_DIR"
+sudo find "$TARGET_HOUSING_DIR" -mindepth 1 -maxdepth 1 -exec rm -rf {} +
 
 # Clonage du dépôt dans un dossier temporaire 
 echo "Clonage du dépôt depuis $REPO_URL..."
@@ -42,8 +42,9 @@ fi
 
 # Copie du dossier housing/ vers uploads/  
 echo "Copie des nouvelles images vers $TARGET_HOUSING_DIR..."
-cp -a "$TMP_DIR/repo/housing/." "$TARGET_HOUSING_DIR/"
+sudo cp -a "$TMP_DIR/repo/housing/." "$TARGET_HOUSING_DIR/"
 
 # Optionnel : ajuster les droits si un serveur web (Apache/Nginx/Docker) lit ces fichiers
-chmod -R a+rX "$TARGET_HOUSING_DIR"
+sudo chmod -R a+rX "$TARGET_HOUSING_DIR"
+
 echo "Terminé : les images de housing/ ont été réinitialisées avec succès."
